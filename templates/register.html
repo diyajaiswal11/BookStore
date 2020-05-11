@@ -1,0 +1,35 @@
+<form method='POST' action="">
+    {% csrf_token %}  
+    <span>
+        Register Account
+    </span>
+    <div>
+        {{form.username}}
+    </div>
+    <div>
+        {{form.email}}
+    </div>
+    <div>
+        {{form.password1}}
+    </div>
+    <div>
+        {{form.password2}}
+    </div>
+    
+    
+<button type="submit" name="Create User">
+    Register
+</button>
+
+{{form.errors}}
+    
+    <div>
+        <span>
+            Already have an Account?
+        </span>
+
+        <a href="{% url 'loginpage' %}">
+            Login now							
+        </a>
+    </div>
+</form>
