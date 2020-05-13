@@ -1,0 +1,45 @@
+html {
+    background-color: rgb(34, 10, 99);
+    
+}
+nav {
+    display: inline-block;
+}
+
+.prof-box {
+    width:1210px;
+    height:510px;
+    background-color: rgba(94, 103, 153, 0.575);
+    padding: 20px;
+    color:white;
+    margin:0 auto;
+    margin-top: 53px;
+    text-align: center;
+    
+}
+
+button {
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 100;
+    letter-spacing: 6;
+    font-size: 40px;
+}
+
+p {
+    font-weight: 150;
+    letter-spacing: 7;
+    font-size: 20px;
+    text-align: left;
+}
+li {
+    display:inline-block;
+}
+.line-break {
+    width: 140px;
+    margin:0 auto;
+    border-top: 1px solid white;
+}
+

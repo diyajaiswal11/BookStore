@@ -1,45 +1,73 @@
-<form method="POST" action="">
-    {% csrf_token %}
-    {% if form.errors %}
-    {% for field in form %}
-    {% for error in field.errors %}
-           <div class="alert alert-danger">
-               <strong>{{ error|escape }}</strong>
-           </div>
-    {% endfor %}
-       {% endfor %}
-    {% for error in form.non_field_errors %}
-          <div class="alert alert-danger">
-               <strong>{{ error|escape }}</strong>
-           </div>
-       {% endfor %}
-{% endif %}
-<div>
-    {{ form.username }}
-</div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="prof-box">
+        
+        <h1>LOGIN</h1>
+        <div class="line-break"></div>
+        <br>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+                   <div class="alert alert-danger">
+                       <strong>{{ error|escape }}</strong>
+                   </div>
+            {% endfor %}
+               {% endfor %}
+            {% for error in form.non_field_errors %}
+                  <div class="alert alert-danger">
+                       <strong>{{ error|escape }}</strong>
+                   </div>
+               {% endfor %}
+               {% endif %}
+        <div>
+            {{ form.username }}
+        </div>
+        <br>
+        <div>
+            {{ form.password }}
+        </div>
+        
+        <br>
+        
+            <button type="submit">
+                Login
+            </button>
+        
+        
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        
+        </form>
+        <div>
+            <p style="text-align: center;">
+                Don't have an account?
+            </p>
+        <button>
+            <a href="{% url 'register' %}">
+                Sign up now							
+            </a>
+        </button>
+        </div>
+        </div>
+    </div>
+      
+</body>
+</html>
 
-<div>
-    {{ form.password }}
-</div>
 
 
 
-    <button type="submit">
-        Login
-    </button>
-</div>
 
-{% for message in messages %}
-    <p id="messages">{{message}}</p>
-{% endfor %}
 
-</form>
-<div>
-    <span>
-        Don't have an account?
-    </span>
-
-    <a href="{% url 'register' %}">
-        Sign up now							
-    </a>
-</div>

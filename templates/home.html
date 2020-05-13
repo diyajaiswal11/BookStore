@@ -1,11 +1,40 @@
-<h1>Home Page</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="prof-box">
+        
+        <h1>ONLINE BOOK STORE</h1>
+        <div class="line-break"></div>
+        <br>
+        <p><li>Upload PDF of any book.</li> <br>
+        <li>Save the PDF.</li> <br>
+    <li>View uploaded PDFs with Cover and Download option.</li></p>
+    <br>
+    <button>
+    <a href="{% url 'loginpage' %}" >
+        Login
+    </a>
+    </button>
+    <br>
+    <br>
+    <button>
+    <a href="{% url 'register' %}" >
+        Register
+    </a>
+    </button>
+    </div>
+      
+</body>
+</html>
 
-<a href="{% url 'loginpage' %}" >
-    Login
-</a>
-<br>
-<br>
 
-<a href="{% url 'register' %}" >
-    Register
-</a>
+
+

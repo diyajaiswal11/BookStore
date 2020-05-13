@@ -1,7 +1,30 @@
-<h1>Heelo {{ request.user }}</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="prof-box" style="text-align: left;">
+        <h1>Hello {{ request.user }}!</h1>
+        
+        <button>
+			<a href="{% url 'logoutpage' %}">
+				Logout
+			</a>
+        </button>
+        
+    </div>
+      
+</body>
+</html>
 
-<div>
-	<a href="{% url 'logoutpage' %}">
-		Logout
-	</a>
-</div>
+
+
+
+
+

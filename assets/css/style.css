@@ -1,0 +1,60 @@
+html {
+    background-color: rgb(34, 10, 99);
+    
+}
+
+
+.prof-box {
+    width:1210px;
+    height:510px;
+    background-color: rgba(94, 103, 153, 0.575);
+    padding: 20px;
+    color:white;
+    margin:0 auto;
+    margin-top: 53px;
+    text-align: center;
+    
+}
+
+.prof-pic {
+    margin-top: 15px;
+    border-radius: 50%;
+    height: 200px;
+    width:200px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    border-radius: 50%;
+} 
+
+h1 {
+    font-weight: 100;
+    letter-spacing: 6;
+    font-size: 40px;
+}
+
+p {
+    font-weight: 150;
+    letter-spacing: 7;
+    font-size: 20px;
+    text-align: left;
+}
+
+.line-break {
+    width: 140px;
+    margin:0 auto;
+    border-top: 1px solid white;
+}
+
+.social-icons {
+    font-size: 30px;
+
+}
+
+.social-icons a {
+    color:white;
+}
+
+.social-icons a:hover {
+    color:rgb(201, 111, 111);
+}

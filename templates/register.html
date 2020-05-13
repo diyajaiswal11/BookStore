@@ -1,35 +1,61 @@
-<form method='POST' action="">
-    {% csrf_token %}  
-    <span>
-        Register Account
-    </span>
-    <div>
-        {{form.username}}
-    </div>
-    <div>
-        {{form.email}}
-    </div>
-    <div>
-        {{form.password1}}
-    </div>
-    <div>
-        {{form.password2}}
-    </div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="prof-box">
+        
+        <h1>REGISTER</h1>
+        <div class="line-break"></div>
+        <form method='POST' action="">
+            {% csrf_token %}  
+            <br>
+            <div>
+                {{form.username}}
+            </div>
+            <br>
+            <div>
+                {{form.email}}
+            </div>
+            <br>
+            <div>
+                {{form.password1}}
+            </div>
+            <br>
+            <div>
+                {{form.password2}}
+            </div>
+            <br>
+            
+        <button type="submit" name="Create User">
+            Register
+        </button>
+        <br>
+        {{form.errors}}
+            
+            <div>
+                <p style="text-align: center;">
+                    Already have an account?
+                </p>
+                <button>
+                <a href="{% url 'loginpage' %}">
+                    Login now							
+                </a>
+                </button>
+            </div>
+        </form>
+        <br>
+    <br>
     
-    
-<button type="submit" name="Create User">
-    Register
-</button>
+    </div>
+      
+</body>
+</html>
 
-{{form.errors}}
-    
-    <div>
-        <span>
-            Already have an Account?
-        </span>
 
-        <a href="{% url 'loginpage' %}">
-            Login now							
-        </a>
-    </div>
-</form>
