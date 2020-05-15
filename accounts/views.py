@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, login , logout
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
+from .forms import BookForm
+from .models import Book
 
 def home(request):
     return render(request,'home.html')
@@ -66,14 +68,38 @@ def logoutpage(request):
 def frontpage(request):
     return render(request,'frontpage.html')  
 
+
+
+@login_required(login_url='books')
+def book_list(request):
+    books=Book.objects.all() 
+
+    return render(request,'book_list.html',{'books':books})
+
+
+@login_required(login_url='uploadbook')
+def upload_book(request):
+    if request.method=='POST':
+        form=BookForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save() 
+            return redirect('book_list') 
+
+    else:
+        form=BookForm()
+    return render(request,'upload_book.html',{'form':form})
+
+
+
+"""
 @login_required(login_url='upload')
 def upload(request):
     context={}
     if request.method=='POST':
-        uploaded_file=request.FILES['document']
+        uploaded_file=request.FILES['document'] 
         fs=FileSystemStorage()
         name=fs.save(uploaded_file.name,uploaded_file)
         url=fs.url(name)
         context['url']=fs.url(name)
     return render(request,'upload.html')
-
+"""

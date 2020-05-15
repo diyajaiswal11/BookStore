@@ -8,8 +8,9 @@ urlpatterns = [
     path('logoutpage/',views.logoutpage, name='logoutpage'),
     path('register/',views.register,name='register'),
     path('frontpage/',views.frontpage, name='frontpage'),
-    path('upload/',views.upload, name='upload'),  
-    path('index/',views.index,name='index'),
+    path('books/',views.book_list, name='book_list'),
+    path('uploadbook/',views.upload_book,name='upload_book'),  
+    #path('index/',views.index,name='index'),
 ]
 
 if settings.DEBUG:

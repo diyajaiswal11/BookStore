@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth import authenticate
-
+from .models import Book
 
 class CreateUserForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password','class':'input100'}))
@@ -31,4 +31,11 @@ class UserLoginForm(forms.Form):
                 raise forms.ValidationError('Wrong Password')
             if not user.is_active:
                 raise forms.ValidationError('not active')
-        return super(UserLoginForm, self).clean(*args, **kwargs)
+        return super(UserLoginForm, self).clean(*args, **kwargs) 
+
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model=Book 
+        fields=['title','author','pdf']
+
