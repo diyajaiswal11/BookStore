@@ -15,7 +15,7 @@ def home(request):
 
 
 def index(request):
-    return render(request,'index.html') 
+    return render(request,'index.html')  
 
 
 
@@ -62,6 +62,11 @@ def logoutpage(request):
     logout(request)
     return redirect('home')
 
+@login_required(login_url='frontpage')
 def frontpage(request):
-    return render(request,'frontpage.html')
+    return render(request,'frontpage.html')  
+
+@login_required(login_url='upload')
+def upload(request):
+    return render(request,'upload.html')
 

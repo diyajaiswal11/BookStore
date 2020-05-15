@@ -7,18 +7,22 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <div class="prof-box" style="text-align: left;"   >
-        <h1>Hello {{ request.user }}!</h1>
-        
-        <button>
+    <h1>Hello {{ request.user }}!</h1>
+    <nav>
+        <li>
 			<a href="{% url 'logoutpage' %}"  >
 				Logout
 			</a>
-        </button>
+        </li>
+    </nav>
+        
+        
+        
         
     </div>
+</head>
+<body>
+    
       
 </body>
 </html>
