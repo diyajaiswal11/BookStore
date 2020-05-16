@@ -76,6 +76,24 @@ def book_list(request):
 
     return render(request,'book_list.html',{'books':books})
 
+@login_required(login_url='books')
+def dsabooks(request):
+    books=Book.objects.filter(category="Data Structure and Algorithms")
+    
+    return render(request,'dsa.html',{'books':books})
+
+@login_required(login_url='cpbooks')
+def cpbooks(request):
+    books=Book.objects.filter(category="Programming Languages")
+    
+    return render(request,'cp.html',{'books':books})
+
+@login_required(login_url='webbooks')
+def webbooks(request):
+    books=Book.objects.filter(category="Web Development")
+    
+    return render(request,'web.html',{'books':books})
+
 
 @login_required(login_url='uploadbook')
 def upload_book(request):

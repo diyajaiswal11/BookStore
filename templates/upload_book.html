@@ -53,7 +53,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <div class="topnav">
-        <h1 style="color: white;margin-left:40px;">Welcome to Online Book Store!</h1>
+        <h1 style="color: white;margin-left:40px;">Online Book Store</h1>
+        <li><a href="{% url 'frontpage' %}">Home</a></li>
+        <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
         <li><a href="{% url 'logoutpage' %}">Logout</a></li>
         
     </div>

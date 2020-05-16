@@ -9,7 +9,10 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('frontpage/',views.frontpage, name='frontpage'),
     path('books/',views.book_list, name='book_list'),
-    path('uploadbook/',views.upload_book,name='upload_book'),  
+    path('uploadbook/',views.upload_book,name='upload_book'), 
+    path('dsabooks/',views.dsabooks,name='dsabooks'), 
+    path('cpbooks/',views.cpbooks,name='cpbooks'), 
+    path('webbooks/',views.webbooks,name='webbooks'), 
     #path('index/',views.index,name='index'),
 ]
 
