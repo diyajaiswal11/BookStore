@@ -68,16 +68,17 @@
         <table class="table">
             <thead>
                 <tr style="color:rgb(34, 10, 99); font-size:1.7em;">
-                    <th>Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                    <th>Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th>Download</th>
+                    <br>
                 </tr>
             </thead>
             <tbody>
                 {% for book in books %} 
                 <tr style="color: black;">
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.title }}</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.author }}</td>
                     <td>
                         <button>
                         <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
@@ -85,7 +86,9 @@
                         </a>
                         </button>
                     </td>
+                    
                 </tr>
+                
                 {% endfor %}
             </tbody>
         </table>
