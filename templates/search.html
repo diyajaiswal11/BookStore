@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="background-color:rgba(94, 103, 153, 0.575)">
+    <style>
+        .prof-box1 {
+            width:750px;
+            height:510px;
+            background-color: rgba(255, 255, 255, 0.575);
+            padding: 20px;
+            color:white;
+            margin:0 auto;
+            margin-top: 190px;
+            text-align: left;
+            
+        }
+        
+        .topnav {
+            overflow: hidden;
+            position:absolute;
+            
+              top:0px;
+              left:0px;
+              width:100%;
+            background-color: rgb(34, 10, 99);
+          }
+        
+          li {
+            margin-left: 2em;
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color:rgb(34, 10, 99);
+        }
+        
+        
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Search Book</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div class="topnav">
+        <h1 style="color: white;margin-left:40px;">Online Book Store</h1>
+        <li><a href="{% url 'frontpage' %}">Home</a></li>
+        <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
+        <li><a href="{% url 'logoutpage' %}">Logout</a></li>
+        
+    </div>
+    <div class="prof-box1">
+        <h1 style="color: black; font-size:2.8em;">Search Results</h1>
+        <!--
+        <button>
+            <a href="{% url 'upload_book' %}" >
+                Upload Book
+            </a>
+            </button>
+        -->
+            
+           
+        <table class="table">
+            <thead>
+                <tr style="color:rgb(34, 10, 99); font-size:1.7em;">
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Download</th>
+                    <br>
+                </tr>
+            </thead>
+            <tbody>
+                {% if books|length < 1 %}
+                <p>No Search Results for <b>"{{query}}"</b></p>
+                {% endif %}
+                {% for book in books %} 
+                <tr style="color: black;">
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.title }}</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.author }}</td>
+                    <td>
+                        <button>
+                        <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+                            Download PDF
+                        </a>
+                        </button>
+                    </td>
+                    
+                </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        
+        <!--
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="document">
+        <button type="submit">Upload file</button>
+    </form>
+-->
+    </div>
+        
+        
+    </div>
+</head>
+<body>
+    
+      
+</body>
+</html>

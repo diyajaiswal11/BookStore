@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: rgb(34, 10, 99);">
 <head>
+    <style>
+        .message.success {
+            text-align: center;
+        }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>Register</title>
@@ -37,8 +43,14 @@
             Register
         </button>
         <br>
+        
         {{form.errors}}
-            
+        
+        <div class="messages">
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        </div>
             <div>
                 <p style="text-align: center;">
                     Already have an account?

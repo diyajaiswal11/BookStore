@@ -13,6 +13,7 @@ urlpatterns = [
     path('dsabooks/',views.dsabooks,name='dsabooks'), 
     path('cpbooks/',views.cpbooks,name='cpbooks'), 
     path('webbooks/',views.webbooks,name='webbooks'), 
+    path('search/',views.search,name='search'),
     #path('index/',views.index,name='index'),
 ]
 

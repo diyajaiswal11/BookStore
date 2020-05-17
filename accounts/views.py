@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from .forms import CreateUserForm, UserLoginForm
@@ -66,6 +66,8 @@ def logoutpage(request):
 
 @login_required(login_url='frontpage')
 def frontpage(request):
+    #books=Book.objects.all()
+    
     return render(request,'frontpage.html')  
 
 
@@ -106,6 +108,29 @@ def upload_book(request):
     else:
         form=BookForm()
     return render(request,'upload_book.html',{'form':form})
+
+
+
+@login_required(login_url='search')
+def search(request):
+
+    query=request.GET['query']
+    if query=="":
+        books=Book.objects.none()
+    elif len(query)>50:
+        books=Book.objects.none()
+    else:
+        books1=Book.objects.filter(title__icontains=query)
+        books2=Book.objects.filter(author__icontains=query)
+        books=books1.union(books2)
+
+    
+    return render(request,'search.html',{'books':books , 'query':query})
+    #return HttpResponse("This is search")
+
+
+
+
 
 
 
