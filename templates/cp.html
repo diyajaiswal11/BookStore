@@ -55,8 +55,14 @@
         <li><a href="{% url 'frontpage' %}">Home</a></li>
         <li><a href="{% url 'book_list' %}">All Books</a></li>
         <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
-        <li><a href="{% url 'logoutpage' %}">Logout</a></li>
+        <li><a href="{% url 'logoutpage' %}">Logout  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
         
+
+        <form method="GET" action="/search" style="margin-top: 35px;">
+          
+            <input type="search"  placeholder="Search Books" name="query" id="query" aria-label="Search">
+            <button type="submit">Search</button>
+          </form>
     </div>
     <div class="prof-box1">
         <h1 style="color: black; font-size:2.8em;">Programming Languages Books</h1>
