@@ -5,6 +5,9 @@ from django.forms import ModelForm
 from django.contrib.auth import authenticate
 from .models import Book
 
+
+
+
 class CreateUserForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password','class':'input100'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Confirm Password', 'class':'input100'}))

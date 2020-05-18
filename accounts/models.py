@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 category_choices= (
     ("Data Structure and Algorithms","Data Structure and Algorithms"),
     ("Programming Languages","Programming Languages"),
@@ -17,4 +19,4 @@ class Book(models.Model):
     def __str__(self):
         return self.title 
 
-        
+
