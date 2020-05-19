@@ -127,6 +127,8 @@ def search(request):
     
     return render(request,'search.html',{'books':books , 'query':query})
     #return HttpResponse("This is search")
+
+    
 """
 @login_required(login_url='addfavourite')
 def addfavourite(request,bookid):
