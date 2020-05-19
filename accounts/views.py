@@ -1,12 +1,12 @@
 from django.shortcuts import render
 # Create your views here.
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from .forms import CreateUserForm, UserLoginForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login , logout
-from django.http import HttpResponseBadRequest
+from django.contrib.auth import authenticate, login , logout, get_user_model
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from .forms import BookForm
@@ -127,10 +127,23 @@ def search(request):
     
     return render(request,'search.html',{'books':books , 'query':query})
     #return HttpResponse("This is search")
-
-
-
-
+"""
+@login_required(login_url='addfavourite')
+def addfavourite(request,bookid):
+    current_user=request.user
+    current_file=get_object_or_404(Book,pk=bookid)
+    p, created = IsFavourite.objects.get_or_create(
+    file = current_file,
+    user = current_user,
+    )
+    if created:
+        p.save()
+    else:
+        p.delete()
+    return JsonResponse(
+        {"status":"success"}
+    )
+"""
 
 
 
