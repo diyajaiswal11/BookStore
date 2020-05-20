@@ -52,7 +52,7 @@
 	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>DSA books</title>
+    <title>Favourite books</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -72,7 +72,7 @@
           </form>
     </div>
     <div class="prof-box1">
-        <h1 style="font-size: 2.1rem;color:black;text-align:center;">Data Structure and Algorithms Books</h1>
+        <h1 style="font-size: 2.1rem;color:black;text-align:center;">Favourite Books</h1>
         <table class="table">
             <thead>
                 <tr style="color:rgb(34, 10, 99); font-size:1.7em;">
@@ -94,7 +94,7 @@
                             Download PDF  
                         </a>
                         </button></td>
-                        <td><input style="padding: 3px;"type="button" id="{{ book.title }}" name="{{ book.title }}" value="Add to Favorites" class="diya"></td>
+                        <td><input style="padding: 3px;"type="button" id="{{ book.title }}" name="{{ book.title }}" value="Remove from Favorites" class="diya"></td>
                    
                 </tr>
                 {% endfor %}
@@ -111,13 +111,13 @@
             console.log(idstr);
             $.ajax({
                 type:"POST",
-                url:"/addfav/",
+                url:"/deletefav/",
                 data:{
                     'book_title':idstr,
                     'csrfmiddlewaretoken': '{{ csrf_token }}'
                     },
                 success: function(html){
-                    swal("Book added to Favourite", {
+                    swal("Book removed from  Favourite. Reload to View Changes.", {
                     icon: "success",
                     });
                     $("button.swal-button--confirm").click(function(event){
@@ -126,7 +126,7 @@
                 },
                 error: function () {
 
-                alert('Error Adding Favourite');
+                alert('Error Removing From Favourite');
 
                     }
                         

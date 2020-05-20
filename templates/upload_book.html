@@ -56,6 +56,7 @@
         <h1 style="color: white;margin-left:40px;">Online Book Store</h1>
         <li><a href="{% url 'frontpage' %}">Home</a></li>
         <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'viewfav' %}">Favourite Books</a></li>
         <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
         <li><a href="{% url 'logoutpage' %}">Logout  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 
@@ -67,8 +68,8 @@
         
     </div>
     <div class="prof-box1">
-        <h1 style="color: black;">Upload Book</h1>
-        <form method="POST" enctype="multipart/form-data">
+        <h1 style="font-size: 2.1rem;color:black;text-align:center;">Upload Book</h1>
+        <form method="POST" enctype="multipart/form-data" style="color:black">
           {% csrf_token %} 
           {{ form.as_p }}
           <button type="submit" class="btn btn-primary">Upload Book</button>

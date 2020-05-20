@@ -44,9 +44,15 @@
         
         </style>
 <head>
+    <script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous">
+	  	
+	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>Web Books</title>
+    <title>Web books</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -54,26 +60,24 @@
         <h1 style="color: white;margin-left:40px;">Online Book Store</h1>
         <li><a href="{% url 'frontpage' %}">Home</a></li>
         <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'viewfav' %}">Favourite Books</a></li>
         <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
         <li><a href="{% url 'logoutpage' %}">Logout  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        
 
         <form method="GET" action="/search" style="margin-top: 35px;">
           
             <input type="search"  placeholder="Search Books" name="query" id="query" aria-label="Search">
             <button type="submit">Search</button>
           </form>
-        
     </div>
     <div class="prof-box1">
-        <h1 style="color: black; font-size:2.8em;">Web Development Books</h1>
-        
-            
-            <br>
+        <h1 style="font-size: 2.1rem;color:black;text-align:center;">Web Development Books</h1>
         <table class="table">
             <thead>
                 <tr style="color:rgb(34, 10, 99); font-size:1.7em;">
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th>Download</th>
                     <br>
                 </tr>
@@ -81,36 +85,55 @@
             <tbody>
                 {% for book in books %} 
                 <tr style="color: black;">
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.title }}</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.author }}</td>
-                    <td>
+                    <td>&nbsp;&nbsp;&nbsp;{{ book.title }}</td>
+                    
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ book.author }}</td>
+                    <td style="padding-right: 32px;">
                         <button>
                         <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
-                            Download PDF
+                            Download PDF  
                         </a>
-                        </button>
-                    </td>
-                    
+                        </button></td>
+                        <td><input style="padding: 3px;"type="button" id="{{ book.title }}" name="{{ book.title }}" value="Add to Favorites" class="diya"></td>
+                   
                 </tr>
-                
                 {% endfor %}
             </tbody>
         </table>
-        
-        <!--
-        <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="document">
-        <button type="submit">Upload file</button>
-    </form>
--->
     </div>
-        
-        
+           
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+            $('.diya').click(function(e){
+            e.preventDefault();
+            var idstr=this.id.toString();
+            console.log(idstr);
+            $.ajax({
+                type:"POST",
+                url:"/addfav/",
+                data:{
+                    'book_title':idstr,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                success: function(html){
+                    swal("Book added to Favourite", {
+                    icon: "success",
+                    });
+                    $("button.swal-button--confirm").click(function(event){
+                        event.preventDefault();
+                    });
+                },
+                error: function () {
+
+                alert('Error Adding Favourite');
+
+                    }
+                        
+                });
+            });
+    </script>
 </head>
-<body>
-    
-      
+<body>    
 </body>
 </html>

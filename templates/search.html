@@ -54,6 +54,7 @@
         <h1 style="color: white;margin-left:40px;">Online Book Store</h1>
         <li><a href="{% url 'frontpage' %}">Home</a></li>
         <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'viewfav' %}">Favourite Books</a></li>
         <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
         <li><a href="{% url 'logoutpage' %}">Logout  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 
@@ -65,7 +66,7 @@
         
     </div>
     <div class="prof-box1">
-        <h1 style="color: black; font-size:2.8em;">Search Results</h1>
+        <h1 style="font-size: 2.1rem;color:black;text-align:center;">Search Results</h1>
         <!--
         <button>
             <a href="{% url 'upload_book' %}" >
@@ -86,7 +87,7 @@
             </thead>
             <tbody>
                 {% if books|length < 1 %}
-                <p>No Search Results for <b>"{{query}}"</b></p>
+                <p style="color: black;">No Search Results for <b>"{{query}}"</b></p>
                 {% endif %}
                 {% for book in books %} 
                 <tr style="color: black;">

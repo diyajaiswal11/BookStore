@@ -14,6 +14,10 @@ urlpatterns = [
     path('cpbooks/',views.cpbooks,name='cpbooks'), 
     path('webbooks/',views.webbooks,name='webbooks'), 
     path('search/',views.search,name='search'),
+    path('addfav/',views.addfav,name='addfav'),
+    path('deletefav/',views.deletefav,name='deletefav'),
+    path('viewfav/',views.viewfav,name='viewfav'),
+    #path('addfavorite/',views.addfavorite,name='addfavorite'),
     #path('index/',views.index,name='index'),
 ]
 

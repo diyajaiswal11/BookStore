@@ -55,6 +55,7 @@
         
         <li><a href="{% url 'frontpage' %}">Home</a></li>
         <li><a href="{% url 'book_list' %}">All Books</a></li>
+        <li><a href="{% url 'viewfav' %}">Favourite Books</a></li>
         <li><a href="{% url 'upload_book' %}">Upload Book</a></li>
         <li><a href="{% url 'logoutpage' %}">Logout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
         
@@ -66,25 +67,29 @@
     </div>
         
     <div class="prof-box1" style="color: black;">
-      <br>
       
 
 
-
-
-        <h2>Data Structure and Algorithms</h2>
+        <h1 style="font-size: 2rem;color:black">Welcome {{ request.user }}! &#128515</h1>
+        <h1 style="font-size:1.2rem;color:rgba(2, 0, 5, 0.877)">Online Book Store is an online platform for free e-books on Data Structure and Algorithms, Programming Languages and Web Development.</h1>
+        <br>
+        <h1 style="font-size: 1.7rem;color:black"><b>Click here to view books by category:</b></h1>
+        <h1 style="font-size: 1.2rem;color:black;display: inline-block">&#9679 Data Structure and Algorithms : </h1>
         <button>
           <a href="{% url 'dsabooks' %}" class="btn btn-primary btn-sm">
               Open
           </a>
           </button>
-        <h2>Programming Languages</h2>
+          <br>
+          <h1 style="font-size: 1.2rem;color:black;display: inline-block">&#9679 Programming Languages : </h1>
+        
         <button>
           <a href="{% url 'cpbooks' %}" class="btn btn-primary btn-sm">
               Open
           </a>
           </button>
-        <h2>Web Development</h2>
+          <br>
+          <h1 style="font-size: 1.2rem;color:black;display: inline-block">&#9679 Web Development : </h1>
         <button>
           <a href="{% url 'webbooks' %}" class="btn btn-primary btn-sm">
               Open

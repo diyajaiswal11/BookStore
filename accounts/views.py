@@ -127,8 +127,42 @@ def search(request):
     
     return render(request,'search.html',{'books':books , 'query':query})
     #return HttpResponse("This is search")
-
     
+
+
+@login_required(login_url='addfav')
+def addfav(request):
+    current_user=request.user
+    if request.method=="POST":
+        book_title = request.POST.get('book_title')
+        fav_book=Book.objects.filter(title=book_title).get()
+        fav_book.usersfav.add(current_user)
+        context = {
+
+        }
+        return render(request,'book_list.html',context)
+
+
+@login_required(login_url='deletefav')
+def deletefav(request):
+    current_user=request.user
+    if request.method=="POST":
+        book_title = request.POST.get('book_title')
+        fav_book=Book.objects.filter(title=book_title).get()
+        fav_book.usersfav.remove(current_user)
+        books=Book.objects.filter(usersfav=current_user)
+        context = {
+            'books':books
+        }
+        return render(request,'favorite.html',context)        
+
+@login_required(login_url='viewfav')
+def viewfav(request):
+    current_user=request.user
+    books=Book.objects.filter(usersfav=current_user)
+    return render(request,'favorite.html',{'books':books})
+
+
 """
 @login_required(login_url='addfavourite')
 def addfavourite(request,bookid):
