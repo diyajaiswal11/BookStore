@@ -1,0 +1,3 @@
+bookenv/
+__pycache__/
+*.sqlite
