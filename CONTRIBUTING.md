@@ -45,3 +45,28 @@ Now open the localhost:8000 to see the webapp.
 #### 9) Make commits and push them to your central forked repo.
 #### 10) Create pull requests.
 #### 11) Hoorah! You made it. This will be your first PR in this project.
+
+# Pull Request Template
+- filename:
+    - change-1 with description
+    ```
+    mention code changes here
+    ```
+    - change-2 with description
+    ```
+    mention code changes here
+    ```
+- filename:
+    - change-1 with description
+    ```
+    mention code changes here
+    ```
+- filename:
+    - change-1 with description
+    ```
+    mention code changes here
+    ```
+    - change-2 with description
+    ```
+    mention code changes here
+    ```
