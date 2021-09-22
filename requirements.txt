@@ -1,7 +1,7 @@
 asgiref==3.2.7
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==3.0.6
+Django==3.1.13
 django-crispy-forms==1.9.1
 docopt==0.6.2
 gitignore==0.0.8
